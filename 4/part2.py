@@ -30,21 +30,25 @@ def main():
             for row in board.split('\n')] \
             for board in parts[1:]]
 
+    no_bingo = set(range(len(boards)))
+
     for current_num in called_nums:
         # update boards
-        for board in boards:
+        for board in [boards[i] for i in no_bingo]:
             for i in range(5):
                 for j in range(5):
                     if board[i][j][0] == current_num:
                         board[i][j][1] = True
 
-        # check for bingo
-        for n in range(len(boards)):
+        # remove bingos
+        for n in list(no_bingo):
             if has_bingo(boards[n]):
-                print(final_score(boards[n], current_num))
-                return
+                no_bingo.remove(n)
 
-if __name__ == "__main__":
+                if not no_bingo:
+                    print(final_score(boards[n], current_num))
+
+if __name__ == "__main__":l
     if len(sys.argv) != 2:
         sys.exit('usage: ./part1.py <inputfile>')
     main()
