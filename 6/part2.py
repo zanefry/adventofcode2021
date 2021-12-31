@@ -6,24 +6,24 @@
 import sys
 
 def main():
-  fish_counters = []
-  with open(sys.argv[1]) as f:
-    fish_counters = [int(n) for n in f.read().rstrip().split(',')]
+    fish_counters = []
+    with open(sys.argv[1]) as f:
+        fish_counters = [int(n) for n in f.read().rstrip().split(',')]
 
-  totals = [fish_counters.count(n) for n in range(9)]
+    totals = [fish_counters.count(n) for n in range(9)]
 
-  for _ in range(256):
-    times_up = totals[0]
+    for _ in range(256):
+        times_up = totals[0]
 
     for i in range(8):
-      totals[i] = totals[i+1]
+        totals[i] = totals[i+1]
 
     totals[8] = times_up
     totals[6] += times_up
 
-  print(sum(totals))
+    print(sum(totals))
 
 if __name__ == "__main__":
-  if len(sys.argv) != 2:
-    sys.exit('usage: ./part1.py <inputfile>')
-  main()
+    if len(sys.argv) != 2:
+        sys.exit('usage: ./part1.py <inputfile>')
+    main()
