@@ -7,8 +7,7 @@ def main():
   with open(sys.argv[1]) as f:
     fish_counters = [int(n) for n in f.read().rstrip().split(',')]
 
-  for day in range(40):
-    print(day)
+  for _ in range(40):
     new_fish = 0
     for i, n in enumerate(fish_counters):
       if n == 0:
