@@ -24,5 +24,5 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        sys.exit('usage: ./part1 <inputfile>')
+        sys.exit('usage: ./part2 <inputfile>')
     main()
