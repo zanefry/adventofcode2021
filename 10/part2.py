@@ -27,10 +27,7 @@ def main():
         stack = []
         for c in line:
             if c in '([{<': stack.append(c)
-            elif c == ')': stack.pop()
-            elif c == ']': stack.pop()
-            elif c == '}': stack.pop()
-            elif c == '>': stack.pop()
+            else: stack.pop()
 
         for c in reversed(stack):
             score *= 5
